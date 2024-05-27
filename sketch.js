@@ -256,12 +256,35 @@ function createConveyorbelt() {
   let lineNumber = 300;
 
   const display = () => {
-    textSize(18);
+    textSize(22);
     fill(200);
     noStroke();
-
     push();
     translate(positionX, positionY);
+    rect(-positionX, 0, width * 80, height / 16);
+    for (let i = -lineNumber / 2; i < lineNumber / 2; i++) {
+      stroke(160);
+      strokeWeight(1);
+      line(spacing*.8 * i - 40, -height / 32, spacing*.8 * i, height / 32);
+      stroke(1);
+      line(spacing*.8 * i, height / 32, spacing*.8 * i, height / 32 -10);
+
+        if (i%5 === 0) {
+          noStroke();
+          fill(100);
+          text(`${(i*10).toFixed(0)} cm`, (spacing *.8 * i + 25), height / 32 + 24);
+        }
+      
+
+    }
+   
+   
+    pop();
+
+   
+/*
+    push();
+
 
     rect(-positionX, 0, width * 2, height / 16);
     for (let i = -lineNumber / 2; i < lineNumber / 2; i++) {
@@ -273,6 +296,8 @@ function createConveyorbelt() {
       line(spacing * i - 40, -height / 32, spacing * i, height / 32);
     }
     pop();
+
+*/
   };
 
   const move = () => {
